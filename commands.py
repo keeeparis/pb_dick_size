@@ -38,6 +38,17 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
       thumb_url="https://i.ibb.co/fXfGtSc/in-article-c5c5fe3870-1.jpg",
       thumb_height="303",
       thumb_width="246"
+    ),
+    InlineQueryResultArticle(
+      id=str(uuid4()),
+      title="Нужен сайт?",
+      input_message_content=InputTextMessageContent(
+        f"Что я делаю? Пишу <b>@keeeparis</b> ...", parse_mode=ParseMode.HTML
+      ),
+      description="Сделаю бота в Telegram, напишу Вам сайт - пишите @keeeparis :)",
+      thumb_url="https://i.ibb.co/MVYL5XD/upload-file-icon-24.jpg",
+      thumb_width="626",
+      thumb_height="626"
     )
   ]
   

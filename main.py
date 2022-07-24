@@ -37,15 +37,15 @@ def main() -> None:
   application.add_handler(InlineQueryHandler(inline_query))
 
   # FOR DEV
-  # application.run_polling() 
+  application.run_polling() 
   
   # FOR PROD
-  application.run_webhook(
-    listen="0.0.0.0", 
-    port=int(os.environ.get('PORT', 5000)), 
-    url_path=config('TOKEN'), 
-    webhook_url=config('BASE_URL') + config('TOKEN')
-  )
+  # application.run_webhook(
+  #   listen="0.0.0.0", 
+  #   port=int(os.environ.get('PORT', 5000)), 
+  #   url_path=config('TOKEN'), 
+  #   webhook_url=config('BASE_URL') + config('TOKEN')
+  # )
 
 if __name__ == "__main__":
   main()
