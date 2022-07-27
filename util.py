@@ -1,5 +1,6 @@
 from ast import Num
 import random
+import requests
 import matplotlib.pyplot as plt
 
 def generateRandomValue():
@@ -24,3 +25,9 @@ def transformRandomValueResult(num: int):
   if num <= 0:
     return "So little it would be shameful to expose it to others."
   return f"My dick is {str(num)} cm"
+
+def getActivity():
+  r = requests.get('http://www.boredapi.com/api/activity')
+  return r.json()
+
+print(getActivity())
