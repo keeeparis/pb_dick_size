@@ -44,7 +44,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
       id=str(uuid4()),
       title="What to do?",
       input_message_content=InputTextMessageContent(
-        f"You can - {escape(todo['activity'])}", parse_mode=ParseMode.HTML
+        f"You can <i>{escape(todo['activity']).lower()}</i>", parse_mode=ParseMode.HTML
       ),
       description="Don't know what to do? Click here!",
       thumb_url="https://i.ibb.co/Jz3FPZd/123.webp",

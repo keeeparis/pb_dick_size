@@ -30,4 +30,4 @@ def getActivity():
   r = requests.get('http://www.boredapi.com/api/activity')
   return r.json()
 
-print(getActivity())
+# print(getActivity()['activity'].lower())
