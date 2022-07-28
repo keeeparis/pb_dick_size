@@ -18,7 +18,7 @@ if __version_info__ < (20, 0, 0, "alpha", 1):
   )
 
 logging.basicConfig(
-  format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO, filename='bot.log'
+  format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO,
 )
 logger = logging.getLogger(__name__)
 
