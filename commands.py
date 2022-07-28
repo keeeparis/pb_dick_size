@@ -26,7 +26,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
   # query = update.inline_query.query // receive what input person typed in
   
   result = transformRandomValueResult(int(generateGaussianDistribution(12, 5)))
-  todo = getActivity()
+  # todo = getActivity()
     
   results = [
     InlineQueryResultArticle(
@@ -40,17 +40,17 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
       thumb_height="303",
       thumb_width="246"
     ),
-    InlineQueryResultArticle(
-      id=str(uuid4()),
-      title="What to do?",
-      input_message_content=InputTextMessageContent(
-        f"You can <i>{escape(todo['activity']).lower()}</i>", parse_mode=ParseMode.HTML
-      ),
-      description="Don't know what to do? Click here!",
-      thumb_url="https://i.ibb.co/Jz3FPZd/123.webp",
-      thumb_height="760",
-      thumb_width="466"
-    ),
+    # InlineQueryResultArticle(
+    #   id=str(uuid4()),
+    #   title="What to do?",
+    #   input_message_content=InputTextMessageContent(
+    #     f"You can <i>{escape(todo['activity']).lower()}</i>", parse_mode=ParseMode.HTML
+    #   ),
+    #   description="Don't know what to do? Click here!",
+    #   thumb_url="https://i.ibb.co/Jz3FPZd/123.webp",
+    #   thumb_height="760",
+    #   thumb_width="466"
+    # ),
     InlineQueryResultArticle(
       id=str(uuid4()),
       title="Нужен сайт?",

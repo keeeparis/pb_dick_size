@@ -23,8 +23,14 @@ def generateGaussianDistribution(mu: Num, sigma: Num):
 
 def transformRandomValueResult(num: int):
   if num <= 0:
-    return "So little it would be shameful to expose it to others."
-  return f"My dick is {str(num)} cm"
+    return "My dick is less 1 cm 😢"
+  if num <= 5:
+    return f"My dick is {str(num)} cm 😔"
+  if num <= 10:
+    return f"My dick is {str(num)} cm 🙄"
+  if num <= 15:
+    return f"My dick is {str(num)} cm 🙃"
+  return f"My dick is {str(num)} cm 😏"
 
 def getActivity():
   r = requests.get('http://www.boredapi.com/api/activity')
