@@ -1,3 +1,4 @@
+import logging
 from html import escape
 from uuid import uuid4
 from util import generateGaussianDistribution, getActivity, transformRandomValueResult
@@ -27,6 +28,15 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
   
   result = transformRandomValueResult(int(generateGaussianDistribution(12, 5)))
   # todo = getActivity()
+  
+  logging.info(
+    f"user_id: {update._effective_user.id}; \
+    username: {update._effective_user.username}; \
+    first_name: {update._effective_user.first_name}; \
+    last_name: {update._effective_user.last_name}; \
+    language_code: {update._effective_user.language_code}; \
+    dick_size: {result}"
+  )
     
   results = [
     InlineQueryResultArticle(
