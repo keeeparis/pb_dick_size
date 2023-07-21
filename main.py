@@ -2,7 +2,7 @@ import logging
 import os
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, InlineQueryHandler
 from telegram import __version__ as TG_VER
-from commands import echo, help_command, inline_query, start
+from src.commands import echo, help_command, inline_query, start
 from decouple import config
 
 try:
@@ -30,22 +30,10 @@ def main() -> None:
   # on different commands - answer in Telegram
   application.add_handler(CommandHandler("start", start))
   application.add_handler(CommandHandler("help", help_command))
-
-  # on non command i.e message - echo the message on Telegram
-  application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
   
   application.add_handler(InlineQueryHandler(inline_query))
-
-  # FOR DEV
-  # application.run_polling() 
   
-  # FOR PROD
-  application.run_webhook(
-    listen="0.0.0.0", 
-    port=int(os.environ.get('PORT', 5000)), 
-    url_path=config('TOKEN'), 
-    webhook_url=config('BASE_URL') + config('TOKEN')
-  )
-
+  application.run_polling()
+  
 if __name__ == "__main__":
   main()
