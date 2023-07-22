@@ -1,0 +1,24 @@
+name: Build and Deploy
+on: 
+  push:
+    branches: [master]
+
+jobs: 
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deploy python bot
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{secrets.SSH_USERNAME}}
+
+          script: |
+            cd /var/www/pb_dick_size
+            git pull
+            docker build -t pb_dick_size .
+            docker rm -f pb_dick_size
+            docker run -d --env-file .env --name pb_dick_size --network network_local pb_dick_size
+            
+            
