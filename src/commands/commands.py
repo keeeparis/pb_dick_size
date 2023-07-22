@@ -1,12 +1,13 @@
 import logging
 from html import escape
 from uuid import uuid4
+from telegram import Update, InlineQueryResultArticle, InputTextMessageContent
+from telegram.ext import ContextTypes
+from telegram.constants import ParseMode
+
+from src.db.database import db
 from src.db.utils import create_interaction, create_user, user_exists
 from src.utils.utils import generateGaussianDistribution, transformRandomValueResult
-from telegram import Update, InlineQueryResultArticle, InputTextMessageContent
-from telegram.constants import ParseMode
-from telegram.ext import ContextTypes
-from src.db.database import db
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
   """Send a message when the command /start is issued."""

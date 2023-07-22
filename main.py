@@ -1,9 +1,10 @@
 import logging
 import os
+from decouple import config
 from telegram.ext import Application, CommandHandler, InlineQueryHandler
 from telegram import __version__ as TG_VER
+
 from src.commands.commands import help_command, inline_query, start
-from decouple import config
 from src.db.database import *
 
 try:
