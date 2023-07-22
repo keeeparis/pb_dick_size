@@ -1,9 +1,10 @@
 import logging
 import os
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, InlineQueryHandler
+from telegram.ext import Application, CommandHandler, InlineQueryHandler
 from telegram import __version__ as TG_VER
-from src.commands import echo, help_command, inline_query, start
+from src.commands.commands import help_command, inline_query, start
 from decouple import config
+from src.db.database import *
 
 try:
   from telegram import __version_info__
@@ -20,17 +21,19 @@ if __version_info__ < (20, 0, 0, "alpha", 1):
 logging.basicConfig(
   format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO,
 )
+logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
+
+logger = logging.getLogger('peeweee')
+logger.addHandler(logging.StreamHandler())
+logger.setLevel(logging.DEBUG)
 
 def main() -> None:
   """Start the bot."""
-  # Create the Application and pass it your bot's token.
   application = Application.builder().token(config('TOKEN')).build()
 
-  # on different commands - answer in Telegram
   application.add_handler(CommandHandler("start", start))
   application.add_handler(CommandHandler("help", help_command))
-  
   application.add_handler(InlineQueryHandler(inline_query))
   
   application.run_polling()
