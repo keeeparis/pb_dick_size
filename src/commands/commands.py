@@ -51,6 +51,8 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     language_code: {current_user.language_code}; \
     dick_size: {result}"
   )
+  
+  list_of_bots = """1. <b>Личностный тест</b> - @five_factor_model_bot\n2. <b>Снежки</b> - @throw_snowball_bot\n3. <b>Dick size</b> - @pe_size_bot\n\nПо интересующим вопросам, @keeeparis"""
     
   results = [
     InlineQueryResultArticle(
@@ -64,6 +66,15 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
       thumb_url="https://i.ibb.co/fXfGtSc/in-article-c5c5fe3870-1.jpg",
       thumb_height="303",
       thumb_width="246"
+    ),
+    InlineQueryResultArticle(
+      id=str(uuid4()),
+      title="Список ботов",
+      input_message_content=InputTextMessageContent(
+        f"{list_of_bots}", parse_mode=ParseMode.HTML
+      ),
+      url='https://seesaw.kz',
+      description="⬇️ Клик ⬇️",
     ),
   ]
   
