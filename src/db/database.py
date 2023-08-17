@@ -19,7 +19,7 @@ class User(BaseModel):
   username = CharField(null=True)
   first_name = CharField()
   last_name = CharField(null=True)
-  created_at = DateField()
+  created_at = DateTimeField()
   
   class Meta:
     table_name = 'User'
@@ -27,7 +27,7 @@ class User(BaseModel):
 class Interaction(BaseModel):
   user = ForeignKeyField(User)
   dick_size_result = IntegerField()
-  created_at = DateField()
+  created_at = DateTimeField()
   
   class Meta:
     table_name = 'Interaction'
