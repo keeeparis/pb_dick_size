@@ -52,7 +52,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     dick_size: {result}"
   )
   
-  list_of_bots = """1. <b>Личностный тест</b> - @five_factor_model_bot\n2. <b>Снежки</b> - @throw_snowball_bot\n3. <b>Dick size</b> - @pe_size_bot\n4. <b>Last.FM bot</b> - @lastfm_tgbot\n\nПо интересующим вопросам, @keeeparis"""
+  list_of_bots = """1. <b>Личностный тест</b> - @five_factor_model_bot\n2. <b>Бросаться снежками</b> - @throw_snowball_bot\n3. <b>Last.FM bot</b> - @lastfm_tgbot\n\nПо интересующим вопросам, @keeeparis"""
     
   results = [
     InlineQueryResultArticle(
