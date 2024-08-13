@@ -29,6 +29,9 @@ logger = logging.getLogger('peeweee')
 logger.addHandler(logging.StreamHandler())
 logger.setLevel(logging.DEBUG)
 
+async def error_handler(update, context):
+    print(f'Update {update} caused error {context.error}')
+
 def main() -> None:
   """Start the bot."""
   application = Application.builder().token(config('TOKEN')).build()
@@ -36,6 +39,7 @@ def main() -> None:
   application.add_handler(CommandHandler("start", start))
   application.add_handler(CommandHandler("help", help_command))
   application.add_handler(InlineQueryHandler(inline_query))
+  application.add_error_handler(error_handler)
   
   application.run_polling()
   
